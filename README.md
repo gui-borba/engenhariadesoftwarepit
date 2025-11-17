@@ -1,23 +1,23 @@
-# Loja de Cupcakes - Vitrine Virtual
+# Cupcake Store – Virtual Cupcake Shop
 
-Uma loja virtual completa e charmosa de cupcakes feita com **Flask** (Python).  
-Perfeita para portfólio, MVP ou até mesmo para colocar no ar e vender de verdade!
+A beautiful, fully functional online cupcake store built with **Flask** (Python).
 
 <img width="1888" height="891" alt="image" src="https://github.com/user-attachments/assets/c54bed58-e222-4f4d-a280-8fb0536bee9d" />
 
 
 
-## Funcionalidades
+## Features
 
-- Cadastro e login de usuários (senhas criptografadas com Bcrypt)  
-- Criação de cupcakes com nome, descrição, preço e foto  
-- Vitrine pública com todos os produtos  
-- Carrinho de compras (session)  
-- Finalização de compra com registro de vendas  
-- Perfil do usuário com foto e edição   
-- Upload seguro de imagens com redimensionamento automático  
+- User registration & login (passwords hashed with Bcrypt)
+- Create cupcakes with title, description, price and photo
+- Public product showcase
+- Shopping cart (session-based)
+- Checkout with order history
+- User profile with photo upload and editing
+- 100% responsive design (Bootstrap 5)
+- Secure image upload with automatic resizing
 
-## Tecnologias Utilizadas
+## Tech Stack
 
 - Python
 - Flask
@@ -26,24 +26,68 @@ Perfeita para portfólio, MVP ou até mesmo para colocar no ar e vender de verda
 - HTML
 - CSS
 
-## Como rodar o projeto localmente
+## How to Run Locally
 
-```bash
-# 1. Clone o repositório
-git clone https://github.com/seu-usuario/loja-cupcakes.git
-cd loja-cupcakes
+# 1. Clone the repo
+git clone https://github.com/your-username/cupcake-store.git
+cd cupcake-store
 
-# 2. Crie um ambiente virtual (recomendado)
+# 2. Create a virtual environment (recommended)
 python -m venv venv
-source venv/bin/activate    # Linux/Mac
-# ou
-venv\Scripts\activate       # Windows
+source venv/bin/activate        # Linux/Mac
+# or
+venv\Scripts\activate           # Windows
 
-# 3. Instale as dependências
+# 3. Install dependencies
 pip install -r requirements.txt
 
-# 4. Rode a aplicação
-python run.py
-# ou
+# 4. Run the app
 flask run
-Acesse: http://localhost:5000
+# or
+python run.py
+
+Acess: http://localhost:5000
+
+
+## Project Structure
+
+cupcake_store/
+│
+├── app/
+│   ├── __init__.py 
+│   ├── models.py  
+│   ├── forms.py 
+│   ├── routes.py 
+│   ├── templates/ 
+│   │   ├── base.html
+│   │   ├── home.html
+│   │   ├── produto.html
+│   │   ├── carrinho.html
+│   │   ├── perfil.html
+│   │   ├── editarperfil.html
+│   │   ├── criarproduto.html
+│   │   ├── login.html
+│   │   ├── contato.html
+│   │   ├── usuarios.html
+│   │   └── navbar.html
+│   │
+│   └── static/                   # Arquivos estáticos
+│       ├── css/
+│       │   └── main.css
+│       ├── cupcakes/
+│       └── fotos_perfil/
+│
+├── migrations/                   # (criado automaticamente pelo Flask-Migrate)
+│
+├── instance/                     # Banco SQLite + arquivos de instância
+│   └── cupcake_store.db
+│
+├── scripts/                      # Scripts auxiliares
+│   └── update_descriptions.py    # (antigo inserção.py, renomeado em inglês)
+│
+├── tests/                        # Testes unitários (futuro)
+│   └── test_basico.py
+│
+├── .gitignore
+├── main.py
+├── requirements.txt
