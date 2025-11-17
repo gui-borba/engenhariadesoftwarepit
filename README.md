@@ -51,14 +51,14 @@ Acess: http://localhost:5000
 
 ## Project Structure
 
+```text
 cupcake_store/
-│
 ├── app/
-│   ├── __init__.py 
-│   ├── models.py  
-│   ├── forms.py 
-│   ├── routes.py 
-│   ├── templates/ 
+│   ├── __init__.py
+│   ├── models.py
+│   ├── forms.py
+│   ├── routes.py
+│   ├── templates/
 │   │   ├── base.html
 │   │   ├── home.html
 │   │   ├── produto.html
@@ -70,24 +70,11 @@ cupcake_store/
 │   │   ├── contato.html
 │   │   ├── usuarios.html
 │   │   └── navbar.html
-│   │
-│   └── static/                   # Arquivos estáticos
+│   └── static/
 │       ├── css/
 │       │   └── main.css
-│       ├── cupcakes/
-│       └── fotos_perfil/
-│
-├── migrations/                   # (criado automaticamente pelo Flask-Migrate)
-│
-├── instance/                     # Banco SQLite + arquivos de instância
-│   └── cupcake_store.db
-│
-├── scripts/                      # Scripts auxiliares
-│   └── update_descriptions.py    # (antigo inserção.py, renomeado em inglês)
-│
-├── tests/                        # Testes unitários (futuro)
-│   └── test_basico.py
-│
-├── .gitignore
-├── main.py
+│       ├── cupcakes/           
+│       └── fotos_perfil/       
+├── main.py                     
 ├── requirements.txt
+└── .gitignore
