@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '29cecf8afd6176f06bb3f55472d490d1'
 # arquivo SQLite local para a loja
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cupcake_store.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 database = SQLAlchemy(app)
