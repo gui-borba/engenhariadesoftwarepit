@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Loja de Cupcakes</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
+    {% block head %}
+    {% endblock %}
+
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <div class="container">
+
+    {% with mensagens = get_flashed_messages(with_categories=True) %}
+
+        {% if mensagens %}
+
+            {% for categoria, mensagem in mensagens %}
+                <div class="alert {{ categoria }}">
+                    {{ mensagem }}
+                </div>
+            {% endfor %}
+
+        {% endif %}
+
+    {% endwith %}
+</div>
+    {% block body %}
+    {% endblock %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+<style>
+    :root {
+        --primary: #9C27B0;      /* Roxo vibrante */
+        --primary-dark: #7B1FA2; /* Roxo escuro */
+        --secondary: #E91E63;    /* Rosa choque (detalhes) */
+        --light: #F3E8FF;        /* Fundo lilás claro */
+        --dark: #1A0033;
+    }
+
+    body {
+        background: linear-gradient(135deg, #F3E8FF 0%, #E8DAFF 100%);
+        color: var(--dark);
+        min-height: 100vh;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .navbar {
+        background: linear-gradient(to right, var(--primary), var(--primary-dark)) !important;
+        box-shadow: 0 4px 15px rgba(156, 39, 176, 0.4);
+    }
+
+    .navbar .nav-link, .navbar .navbar-brand {
+        color: white !important;
+        font-weight: 600;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+
+    .navbar .nav-link:hover {
+        color: #E0C3FC !important;
+    }
+
+    .btn-primary {
+        background: linear-gradient(to right, var(--primary), #AB47BC);
+        border: none;
+        font-weight: 600;
+        border-radius: 50px;
+        padding: 10px 24px;
+        transition: all 0.3s;
+    }
+
+    .btn-primary:hover {
+        background: var(--primary-dark);
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(156, 39, 176, 0.4);
+    }
+
+    .card {
+        border: none;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(156, 39, 176, 0.2);
+        transition: all 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(156, 39, 176, 0.3);
+    }
+
+    .card-title {
+        color: var(--primary-dark);
+        font-weight: 700;
+    }
+
+    .alert {
+        border-radius: 12px;
+        font-weight: 500;
+    }
+
+    .form-control, .form-select {
+        border-radius: 12px;
+        border: 2px solid #D8B4FE;
+    }
+
+    .form-control:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 0.25rem rgba(156, 39, 176, 0.25);
+    }
+</style>

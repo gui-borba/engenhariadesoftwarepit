@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+    <h2>Cadastrar Cupcake</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+            {{ form.titulo.label }} {{ form.titulo(class="form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ form.corpo.label }} {{ form.corpo(class="form-control", rows=4) }}
+        </div>
+        <div class="mb-3">
+            {{ form.preco.label }} {{ form.preco(class="form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ form.foto_produto.label }} {{ form.foto_produto(class="form-control") }}
+        </div>
+        <div>
+            {{ form.botao_submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
+{% endblock %}

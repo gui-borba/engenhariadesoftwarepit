@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container mt-4">
+  <h2>Seu Carrinho</h2>
+  {% if cart %}
+    <table class="table">
+      <thead>
+        <tr><th>Produto</th><th>Preço</th><th>Quantidade</th><th>Subtotal</th><th></th></tr>
+      </thead>
+      <tbody>
+        {% for pid, item in cart.items() %}
+        <tr>
+          <td>
+            <img src="{{ url_for('static', filename='cupcakes/{}'.format(item.foto)) }}" width="60" style="object-fit:cover;"> {{ item.titulo }}
+          </td>
+          <td>R$ {{ '%.2f'|format(item.preco) }}</td>
+          <td>{{ item.quantidade }}</td>
+          <td>R$ {{ '%.2f'|format(item.preco * item.quantidade) }}</td>
+          <td><a href="{{ url_for('remover_carrinho', produto_id=pid) }}" class="btn btn-sm btn-danger">Remover</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <h4>Total: R$ {{ '%.2f'|format(total) }}</h4>
+    {% if cart %}
+<form action="{{ url_for('finalizar_compra') }}" method="POST">
+    <button class="btn btn-success btn-lg mt-3" type="submit">
+        Finalizar Compra
+    </button>
+</form>
+{% endif %}
+  {% else %}
+    <p>Seu carrinho está vazio.</p>
+  {% endif %}
+</div>
+{% endblock %}
